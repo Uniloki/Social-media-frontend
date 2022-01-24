@@ -1,0 +1,31 @@
+.commentWrapper {
+	padding: 10px;
+}
+
+.commentTop {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.commentTopLeft {
+	display: flex;
+	align-items: center;
+}
+
+.commentProfileImg {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.commentUsername {
+	font-size: 15px;
+	font-weight: 500;
+	margin: 0 10px;
+}
+
+.commentCenter {
+	margin: 10px 0;
+}

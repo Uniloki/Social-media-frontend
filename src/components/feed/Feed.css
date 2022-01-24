@@ -1,0 +1,28 @@
+.feed {
+	flex: 5;
+}
+.feedWrapper {
+	padding: 20px;
+	align-content: center;
+	justify-content: center;
+	margin: 0;
+	background-color: transparent;
+	z-index: 1;
+}
+@media (max-width: 600px) {
+	.feed {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.feedWrapper {
+		padding: 0px;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		width: 400px;
+		margin: 0px;
+	}
+}

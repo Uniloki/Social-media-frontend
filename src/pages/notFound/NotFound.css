@@ -1,0 +1,18 @@
+.not-found-wrapper {
+	background-color: #f5f5f5;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.not-found-cont {
+	width: 40%;
+	background-color: white;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-box-shadow: 0px 0px 16px -8px #b8b8ff;
+	box-shadow: 0px 0px 16px -8px #b8b8ff;
+	border-radius: 15px;
+}
