@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import baseUrl from '../../baseUrl'
 import './conversations.css'
 export default function Conversations({ conversation, currentUser }) {
 	const [user, setUser] = useState('')
@@ -11,7 +12,7 @@ export default function Conversations({ conversation, currentUser }) {
 
 		const getUser = async () => {
 			try {
-				const res = await axios('/users?userId=' + friendId)
+				const res = await axios(baseUrl + '/users?userId=' + friendId)
 				setUser(res.data)
 				console.log(res.data)
 			} catch (err) {

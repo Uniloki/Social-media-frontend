@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './comment.css'
 import { format } from 'timeago.js'
+import baseUrl from '../../baseUrl'
 export default function Comment({ comment }) {
 	const [user, setUser] = useState({})
 
 	useEffect(() => {
 		const fetchUser = async () => {
-			const res = await axios.get(`/users?userId=${comment.userId}`)
+			const res = await axios.get(baseUrl + `/users?userId=${comment.userId}`)
 			setUser(res.data)
 			console.log(user)
 		}

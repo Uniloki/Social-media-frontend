@@ -3,6 +3,7 @@ import './Share.css'
 import { PermMedia, Label, Room, EmojiEmotions } from '@material-ui/icons'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
+import baseUrl from '../../baseUrl'
 import axios from 'axios'
 
 export default function Share() {
@@ -33,7 +34,9 @@ export default function Share() {
 			} catch (err) {}
 		}
 		try {
-			await axios.post('/posts', newPost).then((res) => {})
+			await axios.post(baseUrl + '/posts', newPost).then((res) => {
+				window.location.reload()
+			})
 		} catch (err) {}
 	}
 	return (

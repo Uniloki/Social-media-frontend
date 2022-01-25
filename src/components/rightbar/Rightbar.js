@@ -1,5 +1,5 @@
 import './Rightbar.css'
-
+import baseUrl from '../../baseUrl'
 import Online from '../online/Online'
 import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
@@ -17,7 +17,9 @@ export default function Rightbar({ user }) {
 		console.log(user)
 		const getFriends = async () => {
 			try {
-				const friendList = await axios.get('/users/friends/' + user._id)
+				const friendList = await axios.get(
+					baseUrl + '/users/friends/' + user._id
+				)
 				setFriends(friendList.data)
 				setFollowed(currentUser.followings.includes(user?._id))
 			} catch (err) {
@@ -30,12 +32,12 @@ export default function Rightbar({ user }) {
 	const handleClick = async () => {
 		try {
 			if (followed) {
-				await axios.put(`/users/${user._id}/unfollow`, {
+				await axios.put(baseUrl + `/users/${user._id}/unfollow`, {
 					userId: currentUser._id,
 				})
 				dispatch({ type: 'UNFOLLOW', payload: user._id })
 			} else {
-				await axios.put(`/users/${user._id}/follow`, {
+				await axios.put(baseUrl + `/users/${user._id}/follow`, {
 					userId: currentUser._id,
 				})
 				dispatch({ type: 'FOLLOW', payload: user._id })

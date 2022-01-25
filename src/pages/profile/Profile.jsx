@@ -6,12 +6,13 @@ import Rightbar from '../../components/rightbar/Rightbar'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
+import baseUrl from '../../baseUrl'
 export default function Profile() {
 	const [user, setUser] = useState({})
 	const username = useParams().username
 	useEffect(() => {
 		const fetchUser = async () => {
-			const res = await axios.get(`/users?username=${username}`)
+			const res = await axios.get(baseUrl + `/users?username=${username}`)
 			setUser(res.data)
 			console.log(res.data)
 		}

@@ -6,6 +6,8 @@ import { format } from 'timeago.js'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import Comment from '../../components/comment/Comment'
+import baseUrl from '../../baseUrl'
+
 export default function Post({ post }) {
 	const [showComments, setShowComments] = useState(false)
 	const [comments, setComments] = useState([])
@@ -24,7 +26,7 @@ export default function Post({ post }) {
 			postId: post._id,
 		}
 		try {
-			await axios.post('/comments', newComment).then((res) => {
+			await axios.post(baseUrl + '/comments', newComment).then((res) => {
 				setComments([...comments, res.data])
 				desc.current.value = ''
 			})
@@ -38,7 +40,7 @@ export default function Post({ post }) {
 
 	useEffect(() => {
 		const fetchComments = async () => {
-			const res = await axios.get(`/comments/${post._id}`)
+			const res = await axios.get(baseUrl + `/comments/${post._id}`)
 			setComments(res.data)
 		}
 		fetchComments()
@@ -47,7 +49,7 @@ export default function Post({ post }) {
 
 	useEffect(() => {
 		const fetchUser = async () => {
-			const res = await axios.get(`/users?userId=${post.userId}`)
+			const res = await axios.get(baseUrl + `/users?userId=${post.userId}`)
 			setUser(res.data)
 		}
 		fetchUser()
@@ -55,7 +57,9 @@ export default function Post({ post }) {
 
 	const likeHandler = () => {
 		try {
-			axios.put('posts/' + post._id + '/like', { userId: currentUser._id })
+			axios.put(baseUrl + '/posts/' + post._id + '/like', {
+				userId: currentUser._id,
+			})
 		} catch (err) {
 			console.log(err)
 		}
@@ -66,7 +70,9 @@ export default function Post({ post }) {
 	const deleteHandler = () => {
 		try {
 			axios
-				.delete(`/posts/${post._id}`, { data: { userId: currentUser._id } })
+				.delete(baseUrl + `/posts/${post._id}`, {
+					data: { userId: currentUser._id },
+				})
 				.then((res) => {
 					window.location.reload()
 				})

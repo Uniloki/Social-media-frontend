@@ -3,13 +3,14 @@ import './Sidebar.css'
 import { RssFeed, Bookmark, Group } from '@material-ui/icons'
 import axios from 'axios'
 import FriendListItem from '../friendListItem/FriendListItem'
+import baseUrl from '../../baseUrl'
 export default function Sidebar() {
 	const [allUsers, setallUsers] = useState([])
 
 	useEffect(() => {
 		const getUsers = async () => {
 			try {
-				const userList = await axios.get('/users/usersList')
+				const userList = await axios.get(baseUrl + '/users/usersList')
 				setallUsers(userList.data)
 			} catch (err) {
 				console.log(err)
