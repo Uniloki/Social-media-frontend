@@ -30,6 +30,14 @@
 	top: 150px;
 	border: 3px solid white;
 }
+.profileUserImg:hover {
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	-ms-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+	filter: brightness(85%);
+}
 
 .profileInfo {
 	display: flex;
@@ -48,4 +56,30 @@
 
 .profileRightBottom {
 	display: flex;
+}
+.profileBioAdd {
+	cursor: pointer;
+	color: #9381ff;
+	font-weight: 500;
+	font-size: 15px;
+}
+.bioForm {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 8px;
+	margin-top: 10px;
+}
+.bioField {
+	margin-bottom: 10px;
+	width: 100%;
+	height: 100px;
+	resize: none;
+	overflow-y: hidden;
+	border-radius: 15px;
+	padding: 10px;
+}
+.bioField:-webkit-scrollbar {
+	display: none;
 }

@@ -122,12 +122,6 @@ export default function Post({ post }) {
 				</div>
 				<div className="postBottom">
 					<div className="postBottomLeft">
-						{/* <img
-							className="likeIcon"
-							src="https://www.citypng.com/public/uploads/preview/-51611633744fn9yjateyr.png"
-							onClick={likeHandler}
-							alt=""
-						/> */}
 						<Favorite
 							className={isLiked ? 'likeIconActive' : 'likeIcon'}
 							onClick={likeHandler}

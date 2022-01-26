@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useRef } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import './register.css'
+import baseUrl from '../../baseUrl'
 export default function Register() {
 	const username = useRef()
 	const email = useRef()
@@ -20,7 +21,7 @@ export default function Register() {
 				password: password.current.value,
 			}
 			try {
-				await axios.post('auth/register', user)
+				await axios.post(baseUrl + '/auth/register', user)
 				navigate('/login')
 			} catch (err) {
 				console.log(err)
