@@ -53,7 +53,7 @@ export default function Share() {
 						alt=""
 					/>
 					<input
-						placeholder={`What's on your mind ${user.username} ?`}
+						placeholder={`What's on your mind, ${user.username} ?`}
 						className="shareInput"
 						ref={desc}
 					/>
@@ -75,7 +75,7 @@ export default function Share() {
 								}}
 							/>
 						</label>
-						<div className="shareOption">
+						{/* <div className="shareOption">
 							<Label htmlColor="#9381FF" className="shareIcon" />
 							<span className="shareOptionText">Tag</span>
 						</div>
@@ -86,7 +86,7 @@ export default function Share() {
 						<div className="shareOption">
 							<EmojiEmotions htmlColor="#9381FF" className="shareIcon" />
 							<span className="shareOptionText">Feelings</span>
-						</div>
+						</div> */}
 						<div className="imageOption">
 							{isImage && (
 								<span className="shareOptionText">Image Uploaded</span>
